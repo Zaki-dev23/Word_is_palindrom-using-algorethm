@@ -1,0 +1,52 @@
+
+// verefication de mot est palindrom ou no
+FUNCTION palindrom(n : INTEGER ,  str : STRING) : BOOLEAN
+VAR
+    i : INTEGER := 0 ;
+    treuty : BOOLEAN := TRUE;
+BEGIN
+    WHILE (treuty OR i <= n/2) DO
+        IF (str[i] <> str[n-i-1]) THEN
+            treuty = FALSE ;
+            
+        END_IF
+        i := i + 1 ;
+    END_WHILE
+    RETURN treuty ;
+END
+
+//calcul length de mot
+FUNCTION lenghtWord(Word : STRING) : INTEGER
+VAR
+    n,i : INTEGER :=0 ;
+    tr : BOOLEAN := TRUE;
+BEGIN
+    WHILE (tr) DO
+        IF (Word[i] <> NULL) THEN
+            n := n + 1;
+            ELSE
+            tr = FALSE;
+        END_IF
+    END_WHILE
+    RETURN n ;
+END
+
+ALGORITHM palindrom
+VAR
+    Is_palindrom : BOOLEAN ;
+    Word : STRING ; 
+    n : INTEGER;
+BEGIN
+    // desplay Word
+    Write("Write the Word")
+    Read(Word)
+    //calcul lenght
+    n = lenghtWord(Word);
+    //verefication is palindrom
+    Is_palindrom = palindrom(n,Word);
+    IF (Is_palindrom) THEN
+        Write("The Word is palindrom")
+    ELSE
+        Write("The Word isn't palindrom")
+    END_IF
+END
